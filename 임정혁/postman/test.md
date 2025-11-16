@@ -11,7 +11,7 @@ GET http://localhost:8080/api/oauth2/login/google
 ### 사용자 정보 조회
 
 ```
-http://localhost:8080/gdg/test
+GET http://localhost:8080/gdg/test
 
 {
     "id": 1,
@@ -42,3 +42,45 @@ POST http://localhost:8080/api/todos
 ```
 
 <img width="1468" height="752" alt="image" src="https://github.com/user-attachments/assets/b22933bd-0463-4dae-9c65-d45fcb93cab0" />
+
+### Todo 조회
+
+```
+GET http://localhost:8080/api/todos
+```
+
+<img width="1467" height="786" alt="image" src="https://github.com/user-attachments/assets/4afffec4-f936-4938-918c-2ed67d66eaf4" />
+
+### Todo 단건 조회
+
+```
+GET http://localhost:8080/api/todos
+```
+<img width="2106" height="971" alt="image" src="https://github.com/user-attachments/assets/501d0683-983f-49ff-ba45-721fc162fe3e" />
+
+### Todo 수정
+
+```
+PUT http://localhost:8080/api/todos/1
+
+{
+    "title": "수정된 Todo",
+    "description": "수정 테스트",
+    "priority": "MEDIUM",
+    "dueDate": "2025-12-15",
+    "completed": true
+}
+```
+
+<img width="2128" height="1012" alt="image" src="https://github.com/user-attachments/assets/0efaa7b2-8bd1-4dbd-b51a-23c5db397e28" />
+
+
+### Todo 삭제
+
+
+```
+DELETE http://localhost:8080/api/todos/1
+```
+
+![Uploading image.png…]()
+
