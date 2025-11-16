@@ -1,0 +1,17 @@
+spring:
+    application:
+        name: OAuthGoogleLoginExample
+    config:
+        import: optional:file:./application-secret.yml
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
+        database: mysql
+        database-platform: org.hibernate.dialect.MySQLDialect
+        hibernate:
+            ddl-auto: create
+        show-sql: true
+        properties:
+            hibernate:
+                format_sql: false
+                use_sql_comments: true
