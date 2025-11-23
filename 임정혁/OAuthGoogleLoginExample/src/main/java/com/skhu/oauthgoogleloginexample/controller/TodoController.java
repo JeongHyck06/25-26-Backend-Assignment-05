@@ -37,21 +37,21 @@ public class TodoController {
         return ResponseEntity.ok(todos);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<TodoResponseDto> getTodo(@PathVariable Long id, Principal principal) {
-        TodoResponseDto todo = todoService.getTodo(id, principal);
+    @GetMapping("/{todoId}")
+    public ResponseEntity<TodoResponseDto> getTodo(@PathVariable Long todoId, Principal principal) {
+        TodoResponseDto todo = todoService.getTodo(todoId, principal);
         return ResponseEntity.ok(todo);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<TodoResponseDto> updateTodo(@PathVariable Long id, @RequestBody TodoRequestDto requestDto, Principal principal) {
-        TodoResponseDto todo = todoService.updateTodo(id, requestDto, principal);
+    @PutMapping("/{todoId}")
+    public ResponseEntity<TodoResponseDto> updateTodo(@PathVariable Long todoId, @RequestBody TodoRequestDto requestDto, Principal principal) {
+        TodoResponseDto todo = todoService.updateTodo(todoId, requestDto, principal);
         return ResponseEntity.ok(todo);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTodo(@PathVariable Long id, Principal principal) {
-        todoService.deleteTodo(id, principal);
+    @DeleteMapping("/{todoId}")
+    public ResponseEntity<Void> deleteTodo(@PathVariable Long todoId, Principal principal) {
+        todoService.deleteTodo(todoId, principal);
         return ResponseEntity.noContent().build();
     }
 }

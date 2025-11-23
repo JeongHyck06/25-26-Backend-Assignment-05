@@ -55,9 +55,9 @@ public class TodoService {
                 .collect(Collectors.toList());
     }
 
-    public TodoResponseDto getTodo(Long id, Principal principal) {
+    public TodoResponseDto getTodo(Long todoId, Principal principal) {
         User user = getUserFromPrincipal(principal);
-        Todo todo = todoRepository.findById(id)
+        Todo todo = todoRepository.findById(todoId)
                 .orElseThrow(() -> new RuntimeException("할일을 찾을 수 없습니다."));
 
         if (user.getRole() != Role.ADMIN && !todo.getUser().getId().equals(user.getId())) {
@@ -68,9 +68,9 @@ public class TodoService {
     }
 
     @Transactional
-    public TodoResponseDto updateTodo(Long id, TodoRequestDto requestDto, Principal principal) {
+    public TodoResponseDto updateTodo(Long todoId, TodoRequestDto requestDto, Principal principal) {
         User user = getUserFromPrincipal(principal);
-        Todo todo = todoRepository.findById(id)
+        Todo todo = todoRepository.findById(todoId)
                 .orElseThrow(() -> new RuntimeException("할일을 찾을 수 없습니다."));
 
         if (user.getRole() != Role.ADMIN && !todo.getUser().getId().equals(user.getId())) {
@@ -82,9 +82,9 @@ public class TodoService {
     }
 
     @Transactional
-    public void deleteTodo(Long id, Principal principal) {
+    public void deleteTodo(Long todoId, Principal principal) {
         User user = getUserFromPrincipal(principal);
-        Todo todo = todoRepository.findById(id)
+        Todo todo = todoRepository.findById(todoId)
                 .orElseThrow(() -> new RuntimeException("할일을 찾을 수 없습니다."));
 
         if (user.getRole() != Role.ADMIN && !todo.getUser().getId().equals(user.getId())) {
